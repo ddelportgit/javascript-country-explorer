@@ -6,6 +6,8 @@ const regionFilter = document.getElementById("region-filter");
 const statusElement = document.getElementById("status");
 const countriesContainer = document.getElementById("countries-container");
 
+let countries = [];
+
 async function getCountries() {
   try {
     const response = await fetch(API_URL);
@@ -14,7 +16,9 @@ async function getCountries() {
       throw new Error("Failted to fetch countries");
     }
 
-    const countries = await response.json();
+    countries = await response.json();
+
+    displayCountries(countries);
 
     console.log(countries);
     console.log(countries[0]);
@@ -24,6 +28,33 @@ async function getCountries() {
     console.log("Error:", error);
     statusElement.textContent = "Unable to load countries.";
   }
+}
+
+function displayCountries(countryList) {
+  countriesContainer.innerHTML = "";
+
+  countryList.forEach(function (country) {
+    const card = document.createElement("article");
+
+    const name = document.createElement("h2");
+    name.textContent = `${country.flag} ${country.name}`;
+
+    const capital = document.createElement("p");
+    capital.textContent = `Capital ${country.capital || "N/A"}`;
+
+    const region = document.createElement("p");
+    region.textContent = `Region: ${country.region}`;
+
+    const population = document.createElement("p");
+    population.textContent = `Population: ${country.population.toLocaleString()}`;
+
+    card.appendChild(name);
+    card.appendChild(capital);
+    card.appendChild(region);
+    card.appendChild(population);
+
+    countriesContainer.appendChild(card);
+  });
 }
 
 getCountries();
