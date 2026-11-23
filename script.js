@@ -57,4 +57,16 @@ function displayCountries(countryList) {
   });
 }
 
+function searchCountries() {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  const filteredCountries = countries.filter(function (country) {
+    return country.name.toLowerCase().includes(searchTerm);
+  });
+
+  displayCountries(filteredCountries);
+}
+
+searchInput.addEventListener("input", searchCountries);
+
 getCountries();
