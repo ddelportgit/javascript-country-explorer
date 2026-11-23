@@ -3,7 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Country Explorer</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Country Explorer</h1>
+      <p>Explore countries around the world.</p>
+    </header>
+
+    <main>
+      <section class="controls">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a country..."
+        />
+
+        <select id="region-filter">
+          <option value="">All Regions</option>
+          <option value="Africa">Africa</option>
+          <option value="America">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
+        </select>
+      </section>
+
+      <p id="status">Loading countries...</p>
+
+      <section id="countries-container"></section>
+    </main>
+  </body>
 </html>
