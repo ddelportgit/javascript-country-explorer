@@ -13,7 +13,7 @@ async function getCountries() {
     const response = await fetch(API_URL);
 
     if (!response.ok) {
-      throw new Error("Failted to fetch countries");
+      throw new Error("Failed to fetch countries");
     }
 
     countries = await response.json();
@@ -40,7 +40,7 @@ function displayCountries(countryList) {
     name.textContent = `${country.flag} ${country.name}`;
 
     const capital = document.createElement("p");
-    capital.textContent = `Capital ${country.capital || "N/A"}`;
+    capital.textContent = `Capital: ${country.capital || "N/A"}`;
 
     const region = document.createElement("p");
     region.textContent = `Region: ${country.region}`;

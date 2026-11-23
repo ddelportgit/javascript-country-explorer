@@ -72,3 +72,21 @@ main {
     font-size: 28px;
   }
 }
+
+#countries-container article {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #e4e4e7;
+}
+
+#countries-countainer article h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+#countries-container article p {
+  margin-top: 10px;
+  color: #52525b;
+  font-size: 14px;
+}
