@@ -109,5 +109,8 @@ favouritesButton.addEventListener("click", function () {
 
   displayCountries(favouriteCountries);
 });
+allCountriesButton.addEventListener("click", function () {
+  displayCountries(countries);
+});
 
 getCountries();
