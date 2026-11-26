@@ -56,7 +56,9 @@ function displayCountries(countryList) {
     population.textContent = `Population: ${country.population.toLocaleString()}`;
 
     const favouriteButton = document.createElement("button");
-    favouriteButton.textContent = "Add to Favourites";
+    favouriteButton.textContent = favourites.includes(country.name)
+      ? "Added"
+      : "Add to Favourites";
 
     favouriteButton.addEventListener("click", function () {
       if (favourites.includes(country.name)) {
