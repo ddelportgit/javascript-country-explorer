@@ -128,3 +128,10 @@ button:focus-visible {
 #countries-container article button:hover {
   background: #5b21b6;
 }
+
+#countries-container article button:disabled {
+  background: #a1a1aa;
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.8;
+}
