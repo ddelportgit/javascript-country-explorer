@@ -69,4 +69,16 @@ function searchCountries() {
 
 searchInput.addEventListener("input", searchCountries);
 
+function filterByRegion() {
+  const selectedRegion = regionFilter.value;
+
+  const filteredCountries = countries.filter(function (country) {
+    return selectedRegion === "" || country.region === selectedRegion;
+  });
+
+  displayCountries(filteredCountries);
+}
+
+regionFilter.addEventListener("change", filterByRegion);
+
 getCountries();
