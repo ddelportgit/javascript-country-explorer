@@ -109,7 +109,7 @@ searchInput.addEventListener("input", filterCountries);
 regionFilter.addEventListener("change", filterCountries);
 favouritesButton.addEventListener("click", function () {
   showFavoritesOnly = true;
-  filterCountries(true);
+  filterCountries();
 });
 allCountriesButton.addEventListener("click", function () {
   showFavoritesOnly = false;
