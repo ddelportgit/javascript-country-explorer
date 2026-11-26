@@ -6,6 +6,7 @@ const regionFilter = document.getElementById("region-filter");
 const statusElement = document.getElementById("status");
 const countriesContainer = document.getElementById("countries-container");
 const favouritesButton = document.getElementById("favourites-button");
+const allCountriesButton = document.getElementById("all-countries-button");
 
 let countries = [];
 
