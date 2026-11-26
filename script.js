@@ -62,6 +62,7 @@ function displayCountries(countryList) {
     favouriteButton.textContent = favourites.includes(country.name)
       ? "Added!"
       : "Add to Favourites";
+    favouriteButton.disabled = favourites.includes(country.name);
 
     favouriteButton.addEventListener("click", function () {
       if (favourites.includes(country.name)) {
@@ -73,6 +74,7 @@ function displayCountries(countryList) {
       localStorage.setItem("favourites", JSON.stringify(favourites));
 
       favouriteButton.textContent = "Added!";
+      favouriteButton.disabled = true;
     });
 
     card.appendChild(name);
