@@ -59,6 +59,10 @@ function displayCountries(countryList) {
     favouriteButton.textContent = "Add to Favourites";
 
     favouriteButton.addEventListener("click", function () {
+      if (favourites.includes(country.name)) {
+        return;
+      }
+
       favourites.push(country.name);
 
       localStorage.setItem("favourites", JSON.stringify(favourites));
