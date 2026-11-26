@@ -102,6 +102,7 @@ function filterCountries(showFavourites = false) {
   });
 
   displayCountries(filteredCountries);
+  statusElement.textContent = `${filteredCountries.length} countries found`;
 }
 
 searchInput.addEventListener("input", filterCountries);
