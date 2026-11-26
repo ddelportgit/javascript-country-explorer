@@ -55,10 +55,14 @@ function displayCountries(countryList) {
     const population = document.createElement("p");
     population.textContent = `Population: ${country.population.toLocaleString()}`;
 
+    const favouriteButton = document.createElement("button");
+    favouriteButton.textContent = "Add to Favourites";
+
     card.appendChild(name);
     card.appendChild(capital);
     card.appendChild(region);
     card.appendChild(population);
+    card.appendChild(favouriteButton);
 
     countriesContainer.appendChild(card);
   });
