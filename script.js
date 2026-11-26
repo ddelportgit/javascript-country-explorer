@@ -14,6 +14,7 @@ let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
 
 async function getCountries() {
   try {
+    statusElement.textContent = "Loading countries...";
     const response = await fetch(API_URL);
 
     if (!response.ok) {
