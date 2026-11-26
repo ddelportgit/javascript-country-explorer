@@ -57,7 +57,7 @@ function displayCountries(countryList) {
 
     const favouriteButton = document.createElement("button");
     favouriteButton.textContent = favourites.includes(country.name)
-      ? "Added"
+      ? "Added!"
       : "Add to Favourites";
 
     favouriteButton.addEventListener("click", function () {
