@@ -58,6 +58,14 @@ function displayCountries(countryList) {
     const favouriteButton = document.createElement("button");
     favouriteButton.textContent = "Add to Favourites";
 
+    favouriteButton.addEventListener("click", function () {
+      favourites.push(country.name);
+
+      localStorage.setItem("favourites", JSON.stringify(favourites));
+
+      favouriteButton.textContent = "Added!";
+    });
+
     card.appendChild(name);
     card.appendChild(capital);
     card.appendChild(region);
