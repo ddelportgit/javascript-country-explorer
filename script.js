@@ -9,8 +9,8 @@ const favouritesButton = document.getElementById("favourites-button");
 const allCountriesButton = document.getElementById("all-countries-button");
 
 let countries = [];
-
 let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+let showFavoritesOnly = false;
 
 async function getCountries() {
   try {
@@ -85,7 +85,7 @@ function displayCountries(countryList) {
   });
 }
 
-function filterCountries(showFavourites = false) {
+function filterCountries() {
   const searchTerm = searchInput.value.toLowerCase();
   const selectedRegion = regionFilter.value;
 
@@ -96,7 +96,7 @@ function filterCountries(showFavourites = false) {
       selectedRegion === "" || country.region === selectedRegion;
 
     const matchesFavourite =
-      !showFavourites || favourites.includes(country.name);
+      !showFavoritesOnly || favourites.includes(country.name);
 
     return matchesSearch && matchesRegion && matchesFavourite;
   });
@@ -108,9 +108,13 @@ function filterCountries(showFavourites = false) {
 searchInput.addEventListener("input", filterCountries);
 regionFilter.addEventListener("change", filterCountries);
 favouritesButton.addEventListener("click", function () {
+  showFavoritesOnly = true;
   filterCountries(true);
 });
 allCountriesButton.addEventListener("click", function () {
+  showFavoritesOnly = false;
+  searchInput.value = "";
+  regionFilter.value = "";
   filterCountries();
 });
 
