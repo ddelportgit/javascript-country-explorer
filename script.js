@@ -8,6 +8,8 @@ const countriesContainer = document.getElementById("countries-container");
 
 let countries = [];
 
+let favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+
 async function getCountries() {
   try {
     const response = await fetch(API_URL);
