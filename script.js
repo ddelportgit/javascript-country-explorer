@@ -57,28 +57,23 @@ function displayCountries(countryList) {
   });
 }
 
-function searchCountries() {
+function filterCountries() {
   const searchTerm = searchInput.value.toLowerCase();
-
-  const filteredCountries = countries.filter(function (country) {
-    return country.name.toLowerCase().includes(searchTerm);
-  });
-
-  displayCountries(filteredCountries);
-}
-
-searchInput.addEventListener("input", searchCountries);
-
-function filterByRegion() {
   const selectedRegion = regionFilter.value;
 
   const filteredCountries = countries.filter(function (country) {
-    return selectedRegion === "" || country.region === selectedRegion;
+    const matchesSearch = country.name.toLowerCase().includes(searchTerm);
+
+    const matchesRegion =
+      selectedRegion === "" || country.region === selectedRegion;
+
+    return matchesSearch && matchesRegion;
   });
 
   displayCountries(filteredCountries);
 }
 
-regionFilter.addEventListener("change", filterByRegion);
+searchInput.addEventListener("input", filterCountries);
+regionFilter.addEventListener("change", filterCountries);
 
 getCountries();
