@@ -101,5 +101,12 @@ function filterCountries() {
 
 searchInput.addEventListener("input", filterCountries);
 regionFilter.addEventListener("change", filterCountries);
+favouritesButton.addEventListener("click", function () {
+  const favouriteCountries = countries.filter(function (country) {
+    return favourites.includes(country.name);
+  });
+
+  displayCountries(favouriteCountries);
+});
 
 getCountries();
