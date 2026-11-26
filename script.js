@@ -33,6 +33,11 @@ async function getCountries() {
 function displayCountries(countryList) {
   countriesContainer.innerHTML = "";
 
+  if (countryList.length === 0) {
+    countriesContainer.textContent = "No countries found.";
+    return;
+  }
+
   countryList.forEach(function (country) {
     const card = document.createElement("article");
 
